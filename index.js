@@ -157,7 +157,7 @@ function createClasses() {
 // Parses the information and writes file
 function writeToFile() {
   // write html to file
-  allManagers.forEach((managerInfo) => console.log(managerInfo));
+  allManagers.forEach((managerInfo) => console.log(managerInfo.getName()));
   allEngineers.forEach((engineerInfo) => console.log(engineerInfo));
   allInterns.forEach((internInfo) => console.log(internInfo));
 }
