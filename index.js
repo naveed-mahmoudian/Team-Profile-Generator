@@ -10,6 +10,9 @@ const Intern = require("./lib/Intern");
 
 // More Variables
 let allEmployees = [];
+let allManagers = [];
+let allEngineers = [];
+let allInterns = [];
 
 // Arrays of questions
 const employeeQuestionsArr = [
@@ -112,5 +115,40 @@ function handleUserInput(ansObject) {
     return;
   }
 
-  console.dir(allEmployees);
+  for (var i = 0; i < allEmployees.length; i++) {
+    if (allEmployees[i].role === "Manager") {
+      allManagers.push(
+        new Manager(
+          allEmployees[i].name,
+          allEmployees[i].id,
+          allEmployees[i].email,
+          allEmployees[i].officeNumber
+        )
+      );
+    } else if (allEmployees[i].role === "Engineer") {
+      allEngineers.push(
+        new Engineer(
+          allEmployees[i].name,
+          allEmployees[i].id,
+          allEmployees[i].email,
+          allEmployees[i].github
+        )
+      );
+    } else if (allEmployees[i].role === "Intern") {
+      allInterns.push(
+        new Intern(
+          allEmployees[i].name,
+          allEmployees[i].id,
+          allEmployees[i].email,
+          allEmployees[i].school
+        )
+      );
+    }
+  }
+
+  writeToFile();
+}
+
+function writeToFile() {
+  // write html to file
 }
