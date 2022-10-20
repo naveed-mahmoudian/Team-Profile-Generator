@@ -8,7 +8,7 @@ const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 
-// Array of questions
+// Arrays of questions
 const employeeQuestionsArr = [
   {
     type: "input",
@@ -32,7 +32,6 @@ const employeeQuestionsArr = [
     choices: ["Manager", "Engineer", "Intern"],
   },
 ];
-
 const managerQuestionsArr = [
   {
     type: "input",
@@ -40,7 +39,6 @@ const managerQuestionsArr = [
     message: "What is your office number?",
   },
 ];
-
 const engineerQuestionsArr = [
   {
     type: "input",
@@ -48,7 +46,6 @@ const engineerQuestionsArr = [
     message: "What is your GitHub username?",
   },
 ];
-
 const internQuestionsArr = [
   {
     type: "input",
@@ -57,11 +54,13 @@ const internQuestionsArr = [
   },
 ];
 
+// Init starts the application
 init();
 function init() {
   getUserInput(employeeQuestionsArr);
 }
 
+// Gets user input
 function getUserInput(questions) {
   inquirer.prompt(questions).then((employeeAns) => {
     if (employeeAns.role === "Manager") {
@@ -83,6 +82,7 @@ function getUserInput(questions) {
   });
 }
 
+// Handles user input
 function handleUserInput(ansObject) {
   console.log(ansObject);
 }
