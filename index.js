@@ -2,6 +2,12 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 
+// Import classes
+const Employee = require("./lib/Employee");
+const Manager = require("./lib/Manager");
+const Engineer = require("./lib/Engineer");
+const Intern = require("./lib/Intern");
+
 // Array of questions
 const employeeQuestionsArr = [
   {
@@ -64,21 +70,31 @@ function getUserInput(questions) {
         .then((managerAns) => {
           return Object.assign(employeeAns, managerAns);
         })
-        .then((managerAns) => console.log(managerAns));
+        .then((managerAns) => {
+          handleUserInput(managerAns);
+        });
     } else if (employeeAns.role === "Engineer") {
       inquirer
         .prompt(engineerQuestionsArr)
         .then((engineerAns) => {
           return Object.assign(employeeAns, engineerAns);
         })
-        .then((engineerAns) => console.log(engineerAns));
+        .then((engineerAns) => {
+          handleUserInput(engineerAns);
+        });
     } else if (employeeAns.role === "Intern") {
       inquirer
         .prompt(internQuestionsArr)
         .then((internAns) => {
           return Object.assign(employeeAns, internAns);
         })
-        .then((internAns) => console.log(internAns));
+        .then((internAns) => {
+          handleUserInput(internAns);
+        });
     }
   });
+}
+
+function handleUserInput(ansObject) {
+  console.log(ansObject);
 }
