@@ -115,6 +115,10 @@ function handleUserInput(ansObject) {
     return;
   }
 
+  createClasses();
+}
+
+function createClasses() {
   for (var i = 0; i < allEmployees.length; i++) {
     if (allEmployees[i].role === "Manager") {
       allManagers.push(
@@ -151,4 +155,7 @@ function handleUserInput(ansObject) {
 
 function writeToFile() {
   // write html to file
+  allManagers.forEach((managerInfo) => console.log(managerInfo));
+  allEngineers.forEach((engineerInfo) => console.log(engineerInfo));
+  allInterns.forEach((internInfo) => console.log(internInfo));
 }
