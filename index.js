@@ -118,6 +118,7 @@ function handleUserInput(ansObject) {
   createClasses();
 }
 
+// Creates all the classes we need
 function createClasses() {
   for (var i = 0; i < allEmployees.length; i++) {
     if (allEmployees[i].role === "Manager") {
@@ -153,6 +154,7 @@ function createClasses() {
   writeToFile();
 }
 
+// Parses the information and writes file
 function writeToFile() {
   // write html to file
   allManagers.forEach((managerInfo) => console.log(managerInfo));
