@@ -67,30 +67,18 @@ function getUserInput(questions) {
     if (employeeAns.role === "Manager") {
       inquirer
         .prompt(managerQuestionsArr)
-        .then((managerAns) => {
-          return Object.assign(employeeAns, managerAns);
-        })
-        .then((managerAns) => {
-          handleUserInput(managerAns);
-        });
+        .then((managerAns) => Object.assign(employeeAns, managerAns))
+        .then((managerAns) => handleUserInput(managerAns));
     } else if (employeeAns.role === "Engineer") {
       inquirer
         .prompt(engineerQuestionsArr)
-        .then((engineerAns) => {
-          return Object.assign(employeeAns, engineerAns);
-        })
-        .then((engineerAns) => {
-          handleUserInput(engineerAns);
-        });
+        .then((engineerAns) => Object.assign(employeeAns, engineerAns))
+        .then((engineerAns) => handleUserInput(engineerAns));
     } else if (employeeAns.role === "Intern") {
       inquirer
         .prompt(internQuestionsArr)
-        .then((internAns) => {
-          return Object.assign(employeeAns, internAns);
-        })
-        .then((internAns) => {
-          handleUserInput(internAns);
-        });
+        .then((internAns) => Object.assign(employeeAns, internAns))
+        .then((internAns) => handleUserInput(internAns));
     }
   });
 }
