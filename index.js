@@ -8,6 +8,9 @@ const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 
+// More Variables
+let allEmployees = [];
+
 // Arrays of questions
 const employeeQuestionsArr = [
   {
@@ -38,6 +41,12 @@ const managerQuestionsArr = [
     name: "officeNumber",
     message: "What is your office number?",
   },
+  {
+    type: "list",
+    name: "addEmployee",
+    message: "Would you like to add another team member?",
+    choices: ["Yes", "No"],
+  },
 ];
 const engineerQuestionsArr = [
   {
@@ -45,12 +54,24 @@ const engineerQuestionsArr = [
     name: "github",
     message: "What is your GitHub username?",
   },
+  {
+    type: "list",
+    name: "addEmployee",
+    message: "Would you like to add another team member?",
+    choices: ["Yes", "No"],
+  },
 ];
 const internQuestionsArr = [
   {
     type: "input",
     name: "school",
     message: "What school do you go to?",
+  },
+  {
+    type: "list",
+    name: "addEmployee",
+    message: "Would you like to add another team member?",
+    choices: ["Yes", "No"],
   },
 ];
 
@@ -84,5 +105,12 @@ function getUserInput(questions) {
 
 // Handles user input
 function handleUserInput(ansObject) {
-  console.log(ansObject);
+  allEmployees.push(ansObject);
+
+  if (ansObject.addEmployee === "Yes") {
+    getUserInput(employeeQuestionsArr);
+    return;
+  }
+
+  console.dir(allEmployees);
 }
