@@ -156,8 +156,68 @@ function createClasses() {
 
 // Parses the information and writes file
 function writeToFile() {
-  // write html to file
-  allManagers.forEach((managerInfo) => console.log(managerInfo.getName()));
-  allEngineers.forEach((engineerInfo) => console.log(engineerInfo));
-  allInterns.forEach((internInfo) => console.log(internInfo));
+  fs.writeFile(
+    "./dist/index.html",
+    `
+  <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <title>Team Profile</title>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="container-fluid bg-dark">
+        <h1 class="row text-white justify-content-center p-5">Team Profile</h1>
+      </div>
+    </header>
+
+    <!-- Profile Cards -->
+    <section id="cards">
+      <div class="container p-5">
+        <div class="row justify-content-center">
+          <div class="card p-0 text-center" style="width: 20rem">
+            <div class="card-header bg-dark">
+              <h4 class="card-title text-white">Name</h4>
+              <h6 class="card-subtitle text-white">Role</h6>
+            </div>
+            <ul class="list-group p-4 bg-light">
+              <li class="list-group-item">ID: 1234</li>
+              <li class="list-group-item">
+                Email: <a href="mailto: nav@gmail.com">nav@gmail.com</a>
+              </li>
+              <li class="list-group-item">Custom: xyz</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bootstrap JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
+  `,
+    (error) => {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log("Successfully generated HTML file!");
+      }
+    }
+  );
 }
