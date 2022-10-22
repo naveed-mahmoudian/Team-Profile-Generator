@@ -158,7 +158,6 @@ function createClasses() {
 function writeToFile() {
   let employees = [...allManagers, ...allEngineers, ...allInterns];
   let employeeHtml = [];
-  console.log(employees);
 
   function customEntry(emp) {
     if (emp.constructor.name === "Manager") {
@@ -172,7 +171,7 @@ function writeToFile() {
 
   for (var i = 0; i < employees.length; i++) {
     employeeHtml.push(`
-    <div class="card p-0 text-center" style="width: 20rem">
+    <div class="card p-0 m-2 text-center" style="width: 20rem">
             <div class="card-header bg-dark">
               <h4 class="card-title text-white">${employees[i].name}</h4>
               <h6 class="card-subtitle text-white">${
@@ -222,7 +221,7 @@ function writeToFile() {
     <section id="cards">
       <div class="container p-5">
         <div class="row justify-content-center" id="cardHere">
-          ${employeeHtml}
+          ${employeeHtml.join("")}
         </div>
       </div>
     </section>
