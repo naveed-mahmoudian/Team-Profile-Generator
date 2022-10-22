@@ -156,6 +156,42 @@ function createClasses() {
 
 // Parses the information and writes file
 function writeToFile() {
+  let employees = [...allManagers, ...allEngineers, ...allInterns];
+  let employeeHtml = [];
+  console.log(employees);
+
+  function customEntry(emp) {
+    if (emp.constructor.name === "Manager") {
+      return `Office Number: ${emp.officeNumber}`;
+    } else if (emp.constructor.name === "Engineer") {
+      return `GitHub: <a href="https://github.com/${emp.github}/" target="_blank">${emp.github}</a>`;
+    } else if (emp.constructor.name === "Intern") {
+      return `School: ${emp.school}`;
+    }
+  }
+
+  for (var i = 0; i < employees.length; i++) {
+    employeeHtml.push(`
+    <div class="card p-0 text-center" style="width: 20rem">
+            <div class="card-header bg-dark">
+              <h4 class="card-title text-white">${employees[i].name}</h4>
+              <h6 class="card-subtitle text-white">${
+                employees[i].constructor.name
+              }</h6>
+            </div>
+            <ul class="list-group p-4 bg-light">
+              <li class="list-group-item">ID: ${employees[i].id}</li>
+              <li class="list-group-item">
+                Email: <a href="mailto: ${employees[i].email}">${
+      employees[i].email
+    }</a>
+              </li>
+              <li class="list-group-item">${customEntry(employees[i])}</li>
+            </ul>
+          </div>
+    `);
+  }
+  //   console.log(employeeHtml);
   fs.writeFile(
     "./dist/index.html",
     `
@@ -185,20 +221,8 @@ function writeToFile() {
     <!-- Profile Cards -->
     <section id="cards">
       <div class="container p-5">
-        <div class="row justify-content-center">
-          <div class="card p-0 text-center" style="width: 20rem">
-            <div class="card-header bg-dark">
-              <h4 class="card-title text-white">Name</h4>
-              <h6 class="card-subtitle text-white">Role</h6>
-            </div>
-            <ul class="list-group p-4 bg-light">
-              <li class="list-group-item">ID: 1234</li>
-              <li class="list-group-item">
-                Email: <a href="mailto: nav@gmail.com">nav@gmail.com</a>
-              </li>
-              <li class="list-group-item">Custom: xyz</li>
-            </ul>
-          </div>
+        <div class="row justify-content-center" id="cardHere">
+          ${employeeHtml}
         </div>
       </div>
     </section>
