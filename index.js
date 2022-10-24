@@ -180,7 +180,7 @@ function writeToFile() {
 
   for (var i = 0; i < employees.length; i++) {
     employeeHtml.push(`
-    <div class="card p-0 m-2 text-center" style="width: 20rem">
+    <div class="card shadow-lg p-0 m-2 text-center" style="width: 20rem">
             <div class="card-header bg-dark">
               <h4 class="card-title text-white">${employees[i].name}</h4>
               <h6 class="card-subtitle text-white">${
@@ -200,7 +200,7 @@ function writeToFile() {
           </div>
     `);
   }
-  //   console.log(employeeHtml);
+
   fs.writeFile(
     "./dist/index.html",
     `
@@ -224,7 +224,7 @@ function writeToFile() {
     />
     <title>Team Profile</title>
   </head>
-  <body>
+  <body style="background-color: #d2b48c">
     <!-- Header -->
     <header>
       <div class="container-fluid bg-dark">
