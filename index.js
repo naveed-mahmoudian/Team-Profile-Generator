@@ -168,6 +168,16 @@ function writeToFile() {
     }
   }
 
+  function customIcon(emp) {
+    if (emp.constructor.name === "Manager") {
+      return `<i class="bi bi-cup-hot-fill text-white"></i>`;
+    } else if (emp.constructor.name === "Engineer") {
+      return `<i class="bi bi-file-earmark-code-fill text-white"></i>`;
+    } else if (emp.constructor.name === "Intern") {
+      return `<i class="bi bi-mortarboard-fill text-white"></i>`;
+    }
+  }
+
   for (var i = 0; i < employees.length; i++) {
     employeeHtml.push(`
     <div class="card p-0 m-2 text-center" style="width: 20rem">
@@ -176,6 +186,7 @@ function writeToFile() {
               <h6 class="card-subtitle text-white">${
                 employees[i].constructor.name
               }</h6>
+              ${customIcon(employees[i])}
             </div>
             <ul class="list-group p-4 bg-light">
               <li class="list-group-item">ID: ${employees[i].id}</li>
@@ -205,6 +216,11 @@ function writeToFile() {
       rel="stylesheet"
       integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
       crossorigin="anonymous"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
     />
     <title>Team Profile</title>
   </head>
