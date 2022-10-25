@@ -22,6 +22,8 @@ This application generates a team profile page (as index.html) from questions an
 
 To install, run 'npm install' to install all dependencies. Dependencies for this application can be found in the package.json file. Additionally, you must have node.js installed on your machine.
 
+[Click Here for Walkthrough Video](https://app.castify.com/view/cf6f603b-c5b9-4730-81e6-a2a23a37aa7d)
+
 [Click Here for GitHub Repo](https://github.com/naveed-mahmoudian/Team-Profile-Generator)
 
 ## Usage
